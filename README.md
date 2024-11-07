@@ -6,7 +6,7 @@
 
 ### Team Members
 - Roshan Parveen
-- Shreyas Kumar
+- [Shreyas Kumar](https://github.com/shreyaskumar)
 - Amrithesh S Menon
 - Aishwarya Sreenivasan Perungolam
 
