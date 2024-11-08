@@ -11,50 +11,47 @@ const AdminPage = async () => {
 
   return (
     <div className="mx-auto flex max-w-7xl flex-col space-y-14">
-      <header className="admin-header">
+      <header className="flex items-center space-x-4 py-4">
         <Link href="/" className="cursor-pointer">
-        <Image
-          src="/assets/icons/logo-full.svg"
-          height={64} // Adjust height to your preference
-          width={324} // Adjust width proportionally to maintain aspect ratio
-          alt="logo"
-          className="h-16 w-fit" // Update the tailwind classes for height as well
-        />
+          <Image
+            src="/assets/icons/logo-full.svg"
+            height={64} // Adjust height as needed
+            width={324} // Adjust width proportionally
+            alt="logo"
+            className="h-16 w-auto"
+          />
         </Link>
-
-        <p className="text-16-semibold">Admin Dashboard</p>
+        <p className="text-xl font-semibold">Admin Dashboard</p>
       </header>
 
-      <main className="admin-main">
-        <section className="w-full space-y-4">
-          <h1 className="header">Welcome 👋</h1>
-          <p className="text-dark-700">
-            Start the day with managing new appointments
-          </p>
+      <main className="space-y-12">
+        <section className="space-y-2">
+          <h1 className="text-2xl font-bold">Welcome 👋</h1>
+          <p className="text-gray-700">Start the day with managing new appointments</p>
         </section>
 
-        <section className="admin-stat">
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatCard
             type="appointments"
-            count={appointments.scheduledCount}
+            count={appointments?.scheduledCount ?? 0}
             label="Scheduled appointments"
-            icon={"/assets/icons/appointments.svg"}
+            icon="/assets/icons/appointments.svg"
           />
           <StatCard
             type="pending"
-            count={appointments.pendingCount}
+            count={appointments?.pendingCount ?? 0}
             label="Pending appointments"
-            icon={"/assets/icons/pending.svg"}
+            icon="/assets/icons/pending.svg"
           />
           <StatCard
             type="cancelled"
-            count={appointments.cancelledCount}
+            count={appointments?.cancelledCount ?? 0}
             label="Cancelled appointments"
-            icon={"/assets/icons/cancelled.svg"}
+            icon="/assets/icons/cancelled.svg"
           />
         </section>
 
-        <DataTable columns={columns} data={appointments.documents} />
+        <DataTable columns={columns} data={appointments?.documents ?? []} />
       </main>
     </div>
   );
